@@ -1,0 +1,10 @@
+<phpunit colors="true">
+    <testsuite>
+        <file>SetTest.php</file>
+    </testsuite>
+    <filter>
+        <whitelist>
+            <file>Set.php</file>
+        </whitelist>
+    </filter>
+</phpunit>

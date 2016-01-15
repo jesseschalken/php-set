@@ -17,7 +17,7 @@ $set->remove(2);
 var_export($set->contains(4)); // true
 var_export($set->contains(2)); // false
 
-// Make empty and check if empty
+// Clear and check if empty
 $set->clear();
 var_export($set->isEmpty()); // true
 

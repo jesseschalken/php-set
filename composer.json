@@ -1,6 +1,6 @@
 {
   "name": "jesseschalken/set",
-  "description": "Copy of java.utils.Set implementing ArrayAccess, Countable, IteratorAggregate with O(1) conversion to/from array keys",
+  "description": "java.utils.Set for PHP implementing ArrayAccess, Countable and IteratorAggregate with O(1) conversion to/from array keys",
   "license": "MIT",
   "authors": [
     {

@@ -16,26 +16,34 @@ $set->add(4);
 $set->remove(2);
 var_export($set->contains(4)); // true
 var_export($set->contains(2)); // false
+
+// Make empty and check if empty
 $set->clear();
 var_export($set->isEmpty()); // true
 
 // Add and remove other arrays, Sets or Traversables 
 $set->addAll(['red', 'green', 'blue', 54]);
 $set->removeAll(new \ArrayObject(['green', 54]));
+
+// Check subset/superset
 var_export($set->containsAll(new Set(['red', 'blue']))); // true
 var_export($set->toArray()); // ['red', 'blue']
+
+// Intersect another array, Set or Traversable
 $set->retainAll(['blue', 'green']);
 var_export($set->toArray()); // ['blue']
 var_export($set->size()); // 1
 var_export($set->equals(['blue'])); // true
 
-// Convert to and from array keys
+// Convert to array keys
 $set = new Set([1, 2]);
 var_export($set->toArrayKeys()); // [1 => true, 2 => true]
+
+// Convert from array keys
 $set = Set::fromArrayKeys([7 => true, 3 => 'string']);
 var_export($set->toArray()); // [7, 3]
 
-// Use ArrayAccess, IteratorAggregate and Countable
+// Use ArrayAccess
 $set = new Set();
 $set['red']   = true; // add
 $set['green'] = true; // add
@@ -44,9 +52,11 @@ var_export($set['green']); // true
 var_export($set['blue']); // false
 var_export($set['red']); // false
 
+// Use IteratorAggregate
 foreach ($set as $v) {
     var_export($v); // blue
 }
 
+// Use Countable
 var_export(count($set)); // 1
 ```

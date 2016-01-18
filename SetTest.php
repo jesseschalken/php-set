@@ -118,4 +118,24 @@ class SetTest extends \PHPUnit_Framework_TestCase {
         $set = new Set;
         print isset($set[0]);
     }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionCode  0
+     * @expectedExceptionMessage  Cannot use a 'stdClass' as a set
+     */
+    public function testInvalidSet() {
+        $set      = new \stdClass();
+        $set->foo = 1;
+        new Set($set);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionCode  0
+     * @expectedExceptionMessage  Cannot use a 'integer' as a set
+     */
+    public function testInvalidSet2() {
+        new Set(8);
+    }
 }

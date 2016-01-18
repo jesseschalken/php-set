@@ -51,7 +51,8 @@ class Set implements ArrayAccess, Countable, IteratorAggregate {
             }
             return $s;
         } else {
-            throw new \InvalidArgumentException('Cannot use a ' . gettype($t) . ' as a set');
+            $type = is_object($t) ? get_class($t) : gettype($t);
+            throw new \InvalidArgumentException("Cannot use a '$type' as a set");
         }
     }
 

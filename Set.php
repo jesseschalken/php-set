@@ -25,11 +25,7 @@ use Traversable;
  */
 class Set implements ArrayAccess, Countable, IteratorAggregate {
     /**
-     * _O(1)_
-     *
-     * Create a set from the keys of an array.
-     *
-     * Note that `$array === Set::fromArrayKeys($array)->toArrayKeys()`.
+     * _O(1)_ Create a set from the keys of an array. Note that `$array === Set::fromArrayKeys($array)->toArrayKeys()`.
      * @param array $array
      * @return Set
      */
@@ -63,9 +59,7 @@ class Set implements ArrayAccess, Countable, IteratorAggregate {
     private $set;
 
     /**
-     * _O(n)_
-     *
-     * Create a set.
+     * _O(n)_ Create a set.
      * @param array|Traversable $contents
      */
     public function __construct($contents = array()) {
@@ -75,9 +69,7 @@ class Set implements ArrayAccess, Countable, IteratorAggregate {
     #region java.util.Set
 
     /**
-     * _O(1)_
-     *
-     * Adds the specified value to the set, if not already present.
+     * _O(1)_ Adds the specified value to the set, if not already present.
      * @param int|string $e
      * @return void
      */
@@ -86,9 +78,7 @@ class Set implements ArrayAccess, Countable, IteratorAggregate {
     }
 
     /**
-     * _O(n)_
-     *
-     * Adds all the values in the specified array or Traversable to the set, if not already present.
+     * _O(n)_ Set union. Adds all the values in the specified array or Traversable to the set, if not already present.
      * @param array|Traversable $c
      * @return void
      */
@@ -97,9 +87,7 @@ class Set implements ArrayAccess, Countable, IteratorAggregate {
     }
 
     /**
-     * _O(1)_
-     *
-     * Removes all of the values from the set.
+     * _O(1)_ Removes all of the values from the set.
      * @return void
      */
     public function clear() {
@@ -107,9 +95,7 @@ class Set implements ArrayAccess, Countable, IteratorAggregate {
     }
 
     /**
-     * _O(1)_
-     *
-     * Returns true if this set contains the specified value.
+     * _O(1)_ Returns true if this set contains the specified value.
      * @param int|string $e
      * @return bool
      */
@@ -118,9 +104,7 @@ class Set implements ArrayAccess, Countable, IteratorAggregate {
     }
 
     /**
-     * _O(n)_
-     *
-     * Set union. Returns true if this set contains all of the values of the specified array or Traversable.
+     * _O(n)_ Returns true if this set contains all of the values of the specified array or Traversable.
      * @param array|Traversable $c
      * @return bool
      */
@@ -129,9 +113,7 @@ class Set implements ArrayAccess, Countable, IteratorAggregate {
     }
 
     /**
-     * _O(n)_
-     *
-     * Returns true if this set contains exactly the values of the specified array or Traversable.
+     * _O(n)_ Returns true if this set contains exactly the values of the specified array or Traversable.
      * @param array|Traversable $c
      * @return bool
      */
@@ -143,9 +125,7 @@ class Set implements ArrayAccess, Countable, IteratorAggregate {
     }
 
     /**
-     * _O(1)_
-     *
-     * Return true if this set is empty.
+     * _O(1)_ Return true if this set is empty.
      * @return bool
      */
     public function isEmpty() {
@@ -161,9 +141,7 @@ class Set implements ArrayAccess, Countable, IteratorAggregate {
     }
 
     /**
-     * _O(1)_
-     *
-     * Removes the specified value from the set, if present.
+     * _O(1)_ Removes the specified value from the set, if present.
      * @param int|string $e
      * @return void
      */
@@ -172,9 +150,7 @@ class Set implements ArrayAccess, Countable, IteratorAggregate {
     }
 
     /**
-     * _O(n)_
-     *
-     * Set difference. Removes all of the values from the specified array or Traversable from this set, if present.
+     * _O(n)_ Set difference. Removes all of the values from the specified array or Traversable from this set, if present.
      * @param array|Traversable $c
      * @return void
      */
@@ -183,9 +159,7 @@ class Set implements ArrayAccess, Countable, IteratorAggregate {
     }
 
     /**
-     * _O(n)_
-     *
-     * Set intersection. Removes all of the values *not* in the specified array or Traversable from this set.
+     * _O(n)_ Set intersection. Removes all of the values *not* in the specified array or Traversable from this set.
      * @param array|Traversable $c
      * @return void
      */
@@ -194,9 +168,7 @@ class Set implements ArrayAccess, Countable, IteratorAggregate {
     }
 
     /**
-     * _O(1)_
-     *
-     * Returns the number of values in this set.
+     * _O(1)_ Returns the number of values in this set.
      * @return int
      */
     public function size() {
@@ -204,9 +176,7 @@ class Set implements ArrayAccess, Countable, IteratorAggregate {
     }
 
     /**
-     * _O(n)_
-     *
-     * Returns an array containing the elements of this set as values.
+     * _O(n)_ Returns an array containing the elements of this set as values.
      * @return array
      */
     public function toArray() {
@@ -216,10 +186,8 @@ class Set implements ArrayAccess, Countable, IteratorAggregate {
     #endregion
 
     /**
-     * _O(1)_
-     *
-     * Returns an array containing the elements of this set as keys.
-     * The value may be anything (even null) and you should *not* depend on what is used as the value.
+     * _O(1)_ Returns an array containing the elements of this set as keys. The value may be anything (even null) and
+     * you should *not* depend on what is used as the value.
      * @return array
      */
     public function toArrayKeys() {
@@ -230,7 +198,6 @@ class Set implements ArrayAccess, Countable, IteratorAggregate {
 
     /**
      * _O(1)_
-     *
      * @param int|string $key
      * @return bool
      */
@@ -240,7 +207,6 @@ class Set implements ArrayAccess, Countable, IteratorAggregate {
 
     /**
      * _O(1)_
-     *
      * @param int|string $key
      * @param bool       $value
      * @return void
@@ -285,9 +251,7 @@ class Set implements ArrayAccess, Countable, IteratorAggregate {
     #region Countable
 
     /**
-     * _O(1)_
-     *
-     * Returns the number of values in the set.
+     * _O(1)_ Returns the number of values in the set.
      * @return int
      */
     public function count() {

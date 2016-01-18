@@ -48,12 +48,14 @@ class Set implements ArrayAccess, Countable, IteratorAggregate {
             return $t->set;
         } else if (is_array($t)) {
             return array_fill_keys($t, true);
-        } else {
+        } else if ($t instanceof Traversable) {
             $s = array();
             foreach ($t as $v) {
                 $s[$v] = true;
             }
             return $s;
+        } else {
+            throw new \InvalidArgumentException('Cannot use a ' . gettype($t) . ' as a set');
         }
     }
 

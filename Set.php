@@ -25,6 +25,29 @@ use Traversable;
  */
 class Set implements ArrayAccess, Countable, IteratorAggregate {
     /**
+     * @param (array|Traversable) $sets
+     * @return self
+     */
+	public static function unionAll(array $sets) {
+		$self = new self();
+		foreach ($sets as $set) {
+			$self->addAll($set);
+		}
+		return $self;
+	}
+
+	/**
+	 * @param array|Traversable $a
+	 * @param array|Traversable $b
+	 * @return self
+	 */
+	public static function intersect($a, $b) {
+		$a = new self($a);
+		$a->retainAll($b);
+		return $a;
+	}
+
+    /**
      * _O(1)_ Create a set from the keys of an array. Note that `$array === Set::fromArrayKeys($array)->toArrayKeys()`.
      * @param array $array
      * @return Set

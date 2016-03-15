@@ -25,7 +25,7 @@ use Traversable;
  */
 class Set implements ArrayAccess, Countable, IteratorAggregate {
     /**
-     * @param (array|Traversable) $sets
+     * @param (array|Traversable)[] $sets
      * @return self
      */
 	public static function unionAll(array $sets) {

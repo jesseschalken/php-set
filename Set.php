@@ -210,6 +210,28 @@ class Set implements ArrayAccess, Countable, IteratorAggregate {
     #endregion
 
     /**
+     * _O(?)_ Sort the set.
+     * @param int  $sort_flags Flags to pass to ksort(). SORT_NUMERIC or SORT_STRING are recommended.
+     * @param bool $reverse    Sort in ascending (false, default) or descending (true).
+     * @return void
+     */
+    public function sort($sort_flags = SORT_REGULAR, $reverse = false) {
+        if ($reverse) {
+            krsort($this->set, $sort_flags);
+        } else {
+            ksort($this->set, $sort_flags);
+        }
+    }
+
+    /**
+     * _O(n)_ Reverse the set.
+     * @return void
+     */
+    public function reverse() {
+        $this->set = array_reverse($this->set, true);
+    }
+
+    /**
      * _O(1)_ Returns an array containing the elements of this set as keys. The value may be anything (even null) and
      * you should *not* depend on what is used as the value.
      * @return array
